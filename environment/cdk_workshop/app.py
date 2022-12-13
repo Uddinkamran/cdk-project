@@ -137,7 +137,7 @@ class GlueJobResource(cdk.Stack):
             self,
             "datalakeInput",
             name = "stream-etl-process",
-            role = self.etl_role,
+            role = self.etl_role.role_arn,
             command = aws_glue.CfnJob.JobCommandProperty(
                 name = "gluestreaming",
                 script_location = "s3://{bucket}/{key}".format(
